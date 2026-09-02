@@ -1,0 +1,28 @@
+リセット関数まで
+・paddleX=(FIELD_WIDTH - PADDLE_WIDTH)/2;
+  paddleY=FIELD_HEIGHT-3;
+　18～19行目にあったこの処理をリセット関数に入れる。
+　paddleXとpaddleYは最初に定義しておくため残す。
+
+・srand((unsigned int)time(NULL));
+　srandとは、Rand関数の擬似乱数の発生系列を変更する役割。
+　この処理は、Reset();を処理する前にランダムの場所にボールを発生させる
+　ようにするための定義。
+
+・void Reset(){　リセット関数
+	ballX=rand()%FIELD_WIDTH;
+	ballY=FIELD_HEIGHT/3;
+	ballVelocityX = (rand()%2)?1:-1;
+	ballVelocityY = 1;
+	
+	paddleX=(FIELD_WIDTH - PADDLE_WIDTH)/2;
+    　　paddleY=FIELD_HEIGHT-3;
+	
+	DrawScreen();
+　}
+　フィールドの上から8行目ぐらいの場所にランダムにボールを出す、
+　リセットするたびにこの処理をする。
+
+・if(ballY >= FIELD_HEIGHT-1)
+ 	Reset();
+　ボールがフィールドの地面にあたったとき、リセットする。

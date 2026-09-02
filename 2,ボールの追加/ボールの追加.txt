@@ -1,0 +1,16 @@
+ボールの追加まで
+・for (int x = 0; x < FIELD_HEIGHT; x++){
+ 			if((x==ballX)&&(y==ballY))
+ 			printf("●");
+ 			else
+ 			printf(" ");
+ 		}
+　は、x==ballX かつ y==ballYで●を表示させて、それ以外を空白にする。
+  ●をボールとする。
+
+・int ballVelocityX
+  int ballVelocityY
+  に1を代入しておく。
+　
+　int ballVelocityX = 1;
+  int ballVelocityY = 1;

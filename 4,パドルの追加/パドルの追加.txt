@@ -1,0 +1,13 @@
+パドルの追加まで
+・#define PADDLE_WIDTH  (4)
+　を定義する。
+
+・if((y==paddleY)&&(x>=paddleX)&&(x<paddleX+PADDLE_WIDTH))
+ 　　　printf("■");
+　フィールドの1番右上に、■を4個置く。これをパドルとする。
+
+・int paddleY=FIELD_HEIGHT-3;
+　パドルを下から２マス目に置く。
+
+・int paddleX=(FIELD_WIDTH - PADDLE_WIDTH)/2;
+　の追加でパドルを真ん中に合わせる。

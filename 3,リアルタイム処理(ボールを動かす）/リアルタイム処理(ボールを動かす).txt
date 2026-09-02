@@ -1,0 +1,48 @@
+リアルタイム処理まで
+・while(1){
+  無限ループさせる。
+
+・#include <stdlib.h>
+　メモリ管理、数値変換、乱数生成、プログラムの終了処理など、定義するための
+　標準ライブラリ。
+　
+・#include <time.h>
+　いくつかのマクロが定義されており、時間を操作するための型や関数が宣言されている。
+
+・system("cls");
+　Windowsコマンドプロンプトで実行してコンソール画面をクリアするコマンド。
+
+・clock関数は、返す値の単位を表す型、
+　clock_t型で表す値は、1秒ごとに定義されている。
+
+・clock_t lastClock = clock();
+　をメイン関数とし、
+　while(1){
+ 	clock_t nowClock = clock();
+ 	if(nowClock >= lastClock + INTERVAL){
+　　　　を条件として定義しておく。
+　は、まずwhile(1)でループして処理をおこなう。
+　lastClockとnowClockをclock_t型で定義してclock()を代入する。
+  ボールやパドルなどの動きを１つずつ処理する。
+
+・#define FPS           (10)
+  #define INTERVAL     (1000 / FPS)
+　上の条件に出てきたINTERVALの定義。
+　FPSは1秒間に何回の処理を行うか決める。
+　INTERVALはFPSの処理の後、何ミリ秒まつか決める。
+
+・ballX += ballVelocityX;でボールを右に1マスずつ動かす。
+　ballY += ballVelocityY;を追加することによってボールはななめに動く。
+
+・if(ballX >= FIELD_WIDTH - 1)
+ 	ballVelocityX = -1;
+　つまり、右の壁にボールが当たると逆方向に１マスずつ動く。
+　if(ballX <= 0)
+ 	ballVelocityX = 1;
+
+　if(ballY <= 0)
+ 	ballVelocityY = 1;
+ 			
+  if(ballY >= FIELD_HEIGHT - 1)
+ 	ballVelocityY = -1;
+　を追加して、上下右左どの壁に当たってもボールが跳ね返るようにする。

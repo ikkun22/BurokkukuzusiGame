@@ -1,0 +1,15 @@
+ブロックの配置まで
+・int field[FIELD_HEIGHT][FIELD_WIDTH];
+　を定義しておく。
+
+・for(int y=0; y<FIELD_HEIGHT/4; y++)
+	for(int x=0; x<FIELD_WIDTH; x++)
+	field[y][x]=1;
+　上から、y<FIELD_HEIGHT/4;まで（つまり7行目まで）と、
+　横から、x<FIELD_WIDTH;まで（つまりフィールドの端から端まで）
+　ブロックを並べるようにする。
+
+・if(field[y][x])
+ 　　printf("□");
+　定義したfield[y][x]を呼び出し、□を追加する。
+　これをブロックとする。

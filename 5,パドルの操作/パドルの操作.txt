@@ -1,0 +1,33 @@
+パドルの操作まで
+・if(_kbhit()){
+ 	switch(_getch()){
+ 	case'a': paddleX--; break;
+ 	case'd': paddleX++; break;
+ 	}
+　キーボードのAのキーを押すとパドルが左に動き、
+　Dのキーを押すと右に動く。
+
+・if(paddleX<0)
+ 	paddleX=0;
+ 	if(paddleX>FIELD_WIDTH-PADDLE_WIDTH)
+ 	paddleX=FIELD_WIDTH-PADDLE_WIDTH;
+　パドルの移動をフィールドの端までに制限する。
+
+・if(
+　　　(ballY == paddleY-1)
+ 　　&&(ballX>=paddleX-1)
+ 　　&&(ballX<paddleX+PADDLE_WIDTH+1)
+　　　ボールがパドルの1マス上にあったとき
+ 	){
+ 	if(ballX<paddleX+PADDLE_WIDTH/2)
+　　　　　左右のどちらかにあったとき
+ 		ballVelocityX=-1;　ボールは逆方向に跳ね返る
+ 	else
+ 		ballVelocityX=1;　ボールは逆方向に跳ね返る
+ 				
+ 	ballVelocityY=-1;　ボールは上に跳ね返る
+ 	}
+
+　ballVelocityXの-1と1を切り替えることで跳ね返る処理をする。
+　例えば、ボールが右のパドルに当たったときballVelocityX=-1になり右に跳ね返る、
+　次、ボールが同じように当たったときballVelocityX=1に戻り右に跳ね返る。

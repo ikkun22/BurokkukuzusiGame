@@ -1,0 +1,26 @@
+フィールドの描画まで
+・#define FIELD_WIDTH   (14)
+  #define FIELD_HEIGHT  (FIELD_WIDTH * 2)
+  はFIELD_WIDTHを幅
+　FIELD_HEIGHTを高さとして定義する。
+
+・for (int x = 0; x < FIELD_WIDTH+2; x++)
+ 	printf("■");
+　は上に■をx座標に出し、x < FIELD_WIDTH+2まで繰り返す。
+  つまり、上に■を24個表示させる。
+
+・for (int y = 0; y < FIELD_HEIGHT; y++){
+ 		printf("■");
+ 		for (int x = 0; x < FIELD_WIDTH; x++)
+ 		printf(" ");
+ 		printf("■");
+　　　　　　　　}
+　は■をy座標に出し、y < FIELD_HEIGHTまで繰り返す。
+　for (int x = 0; x < FIELD_WIDTH; x++)
+　printf(" ");で空白を開けてから■を出す。
+
+・for (int x = 0; x < FIELD_WIDTH+2; x++)
+ 	printf("■");
+　は下に■をx座標に出し、x < FIELD_WIDTH+2まで繰り返す。
+
+・これらを処理すると縦長の長方形になり、これをフィールドとする。
