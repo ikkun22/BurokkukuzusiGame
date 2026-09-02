@@ -1,0 +1,12 @@
+完成まで
+・for(int x=ballX-1; x<=ballX+1; x++){
+ 		int y=ballY-1;
+ 		if((y<0)||(x<0)||(x>=FIELD_WIDTH))
+ 		continue;
+　continueは繰り返し処理のループをスキップする。
+　つまり、ボールが画面の端などに行ったときループをスキップする処理。
+
+・if(field[y][x]){　ブロックに当たったとき。
+ 	field[y][x]=0;　ブロックを消す。
+ 	ballVelocityY=1;　ボールが跳ね返る。
+ 	}
